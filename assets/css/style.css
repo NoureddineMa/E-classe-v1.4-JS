@@ -1,0 +1,60 @@
+* {
+  font-family: "Montserrat", sans-serif;
+}
+.form-container h1 {
+  border-left: 8px solid #00c1fe;
+}
+.rounded {
+  border-radius: 1.25rem !important;
+}
+.lien {
+  color: #00c1fe;
+}
+.for-bg {
+  background: linear-gradient(69.66deg, #00c1fe 19.39%, #faffc1 96.69%);
+}
+.bgc {
+  background-color: #faffc1;
+}
+h3 {
+  border-left: 4px solid #00c1fe;
+}
+.position {
+  position: relative;
+}
+.position-a {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.position input {
+  padding-right: 50px;
+}
+.card-one {
+  background-color: #f0f9ff;
+}
+.card-two {
+  background-color: #fef6fb;
+}
+.card-three {
+  background-color: #fefbec;
+}
+.card-four {
+  background: linear-gradient(69.66deg, #00c1fe 19.39%, #faffc1 96.69%);
+}
+.st-ic {
+  color: #00c1fe;
+}
+.co-ic {
+  color: #ee95c5;
+}
+.ic {
+  font-size: 12px;
+}
+.prop {
+  font-size: 12px;
+}
+ul li a:hover {
+  background-color: #00c1fe;
+}
