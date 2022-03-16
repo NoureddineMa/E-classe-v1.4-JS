@@ -23,10 +23,10 @@
                       $password = $_POST['password'];
 
                      if(empty($email)){
-                       $error_mail = 'veuillez remplir ce champ !!';
+                       $error_mail = 'veuillez entrer un valide email  !!';
                      }
-                     elseif(empty($password)){
-                        $error_pwd = 'veuillez remplir ce champ !!';
+                     else if(empty($password)){
+                        $error_pwd = 'veuillez mot de passe incorrect !!';
                      }
                      else{
                       $sql= "SELECT * FROM comptes WHERE email ='$email' and password = '$password' ";
@@ -37,8 +37,8 @@
                          
                       if($row['email'] == $email && $row['password'] == $password){
                         if(isset($_POST['chekbox'])){
-                          setcookie('email',$email,time()+ 10);
-                          setcookie('password',$password,time()+10);
+                          setcookie('email',$email,time()+2);
+                          setcookie('password',$password,time()+2);
                           header('location:Dashboard.php');
                 } 
                 
@@ -74,12 +74,19 @@
                 Enter your credentials to access your account
               </p>
             </div>
+            <?php  if(!empty($error_mail)){ ?>
+            <div class="alert alert-danger" role="alert"><?php echo $error_mail; ?></div>
+            <?php } ?>
            
+            
+            <?php  if(!empty($error_pwd)){ ?>
+            <div class="alert alert-danger" role="alert"><?php echo $error_pwd; ?></div>
+            <?php } ?>
            
 
             <div class="mb-1">
               <label for="InputEmail1" class="form-label" style="font-size: 13px">Email</label> <br>
-              <span class="text-danger"> <?php echo $error_mail ?></span>
+              
               <input
                 type="email"
                 name="email"
@@ -100,7 +107,7 @@
             <div class="mb-2">
               <label for="InputPassword1" class="form-label mt-1" style="font-size: 13px" >
                 Password</label> <br>
-                <span class="text-danger text-center"> <?php echo $error_pwd ?></span>    
+                   
               <input
                 type="password"
                 type="password"
@@ -130,8 +137,11 @@
 
             <p class="text-center pt-3 fs-6 text-muted">
               Forgot your password?
-              <a class="lien" href="#">Reset Password</a>
+              <a class="lien text-decoration-none" href="#">Reset Password</a>
             </p>
+            <div class="d-flex justify-content-center align-items-center">
+            <a class="text-decoration-none fs-6 text-info" href="signup.php">Vous n'avez pas de compte?</a>
+            </div>
           </form>
         </section>
       </section>

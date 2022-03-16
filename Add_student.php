@@ -4,14 +4,14 @@
 <?php 
    $title = 'Add Student';
    include 'head.php';
-   
+
    $err_name='';
    $err_email='';
    $err_phone='';
    $err_enroll_number='';
    $err_date_of_addmision='';
    
-    ;
+   
  ?>   
 
 

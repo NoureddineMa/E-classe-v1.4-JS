@@ -1,5 +1,5 @@
 <?php
-include_once 'connexion.php';
+include 'connexion.php';
 if(isset($_POST['save']))
 {	 
 	 $image = $_POST['image'];
