@@ -26,7 +26,7 @@
                        $error_mail = 'veuillez entrer un valide email  !!';
                      }
                      else if(empty($password)){
-                        $error_pwd = 'veuillez mot de passe incorrect !!';
+                        $error_pwd = 'veuillez entrer un mot de passe valide !!';
                      }
                      else{
                       $sql= "SELECT * FROM comptes WHERE email ='$email' and password = '$password' ";

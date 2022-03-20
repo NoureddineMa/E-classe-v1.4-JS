@@ -6,32 +6,9 @@
    include 'head.php';
 
    
-   $name_courses='';
-   $err_name="";
-   $err_link="";
-   $link_courses='';
-
-     if(isset($_POST['save']))
-     {
-       if(empty($_POST['name']))
-       {
-        $err_name = "veuillez remplir ce champ !!";
-       }
-       else{
-        $name_courses = $_POST['name'];
-       }
-       if(empty($_POST['lien']))
-       {
-        $err_link = "veuillez remplir ce champ !!";
-       }
-       else{
-        $link_courses  = $_POST['lien']; 
-       }
-      
-     }
 
 
-?>
+// ?>
 
 
 <body class="for-bg vh-100">
@@ -39,20 +16,25 @@
 <h2 class="text-center fw-bold">ADD a New Course</h2>
 </div>
 <div class="d-flex flex-column justify-content-center align-items-center ">
-<form method="POST" action="insert-courses.php" class="container w-50 bg-white px-4 rounded py-4">
+<form method="POST" action="insert-courses.php" class="container w-50 bg-white px-4 rounded py-4" >
+
   <div class="form-group">
     <label for="">Nom du course</label> <br>
-    <span class="text-danger ">  <?php echo $err_name ?>   </span>
-    <input type="text" class="form-control"   name="name">
+    <input type="text" class="form-control"   name="name" id="NameCourse" onkeyup="ValidationName()">
+    <div id="ErreurNameCourse"></div>
   </div>
+
   <div class="form-group">
     <label for="">Entrer la photo du course </label>
-    <input type="file" class="form-control" alt="course picture"  name="image">
+    <input type="file" class="form-control" alt="course picture"  name="image" id="PhotoCourse">
+    <div id="ErreurPhotoCourse"></div>
   </div>
+  
+
   <div class="form-group">
     <label for="formGroupExampleInput2">Lien</label> <br>
-    <span class="text-danger">  <?php echo $err_link ?>   </span>
-    <input type="lien" class="form-control  " name="lien" id="formGroupExampleInput2">
+    <input type="lien" class="form-control  " name="lien" id="LienCourse" >
+    <div id="ErreurLienCourse"></div>
   </div>
   
   <div class="col-auto text-center ">
@@ -61,5 +43,6 @@
     </div>
 </form>
 </div>
+<script src="/assets/javascript/Addcourses.js"></script>
 </body>
 </html>

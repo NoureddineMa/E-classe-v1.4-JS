@@ -39,7 +39,7 @@
       <section class="rounded p-4 col-lg-4 col-md-6 col-sm-7 bg-white shadow px-5">
 
         <section class="row">
-          <form class="form-container" method="POST" name="monformulaire" onsubmit="return ValidationForm()">
+          <form class="form-container" method="POST" name="monformulaire" >
             <h1 class="ps-3 ms-4 fw-bolder">E-classe</h1>
             <div class="text-center mt-4">
               <h2 class="text-uppercase" style="font-size: 17px">SIGN UP</h2>
@@ -67,9 +67,11 @@
 
               <div class="mb-2">
               <label class="form-label mt-3" style="font-size: 13px" >Confirm your Password</label> <br>
-              <input type="password" placeholder="confirm your password" class="form-control py-1" name="cpassword"> 
+              <input type="password" placeholder="confirm your password" class="form-control py-1" name="cpassword"  id="confirmpassword" onkeyup="ValidatecPassword()"> 
+              <div id="erreurcpassword"></div>
+              </div>
 
-            <input
+              <input
               type="submit" class="btn btn-info btn-lg mb-3 mt-3 w-100 text-white p-2" value="SIGN UP" name="submit" id="submit">
                 </div>
 
@@ -77,6 +79,7 @@
             <div class="d-flex  flex-column justify-content-center align-items-center">
               <p class="text-black">Vous avez déja un compte?</p>
               <a class="text-decoration-none text-center fs-6  text-info" href="index.php">Connectez vous</a>
+            </div>
             </div>
 
             </form>

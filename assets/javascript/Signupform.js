@@ -1,10 +1,17 @@
+
+// declaration des variables : 
+
 let names = document.getElementById("name");
 let email = document.getElementById("email");
 let password = document.getElementById("password");
+let repassword = document.getElementById("confirmpassword");
 let submit = document.getElementById("submit");
 let err = document.getElementById("erreur");
 let errEmail = document.getElementById("erreurMail");
 let errPassword = document.getElementById("erreurPassword");
+let erreurcpassword = document.getElementById("erreurcpassword");
+
+
 // name : 
 submit.addEventListener("click",(e) =>{
     if(names.value == ""){
@@ -14,7 +21,7 @@ submit.addEventListener("click",(e) =>{
         err.setAttribute("style" , "color:red;");
     }
     else{
-        e.preventDefault();
+        
         names.setAttribute("style" , "color:black; border: 1px green solid ;")  ;
         err.innerText = "";
     }
@@ -29,7 +36,7 @@ submit.addEventListener("click",(e) =>{
         errEmail.setAttribute("style" , "color:red;");
     }
     else{
-        e.preventDefault();
+        
         email.setAttribute("style" , "color:black; border: 1px green solid ;")  ;
         errEmail.innerText = "";
     }
@@ -43,9 +50,23 @@ submit.addEventListener("click",(e) =>{
         errPassword.setAttribute("style" , "color:red;");
     }
     else{
-        e.preventDefault();
+        
         password.setAttribute("style" , "color:black; border: 1px green solid ;")  ;
-        errPassword.innerText = "";
+       
+    }
+})
+
+// confirmation password : 
+submit.addEventListener("click",(ec) =>{
+    if (!(repassword.value == password.value)){
+        ec.preventDefault();
+        repassword.setAttribute("style" , "color:red; border: 1px red solid ;")  ;
+        erreurcpassword.innerText = "Password is not valide ! retry again"
+        erreurcpassword.setAttribute("style" , "color:red;");
+    }
+    else{
+        repassword.setAttribute("style" , "color:black; border: 1px green solid ;")  ;
+        erreurcpassword.innerText = "";
     }
 })
 
@@ -53,21 +74,23 @@ submit.addEventListener("click",(e) =>{
 
 
 
-// creation des fonctions : 
+
+// creation des fonctions : // --------------------------------_----------------
+
 
 // regulary expression : 
 
 // input name : 
 
 function ValidateName(){
-    if(!(/^[a-z A-Z]{5,10}$/).test(names.value)){
+    if(!(/^[a-z A-Z]{3,}$/).test(names.value)){
         names.setAttribute("style" , "color:red; border: 1px red solid ;")  ;
         err.setAttribute("style" , "color:red;");
         err.innerText = "veuillez entrer un nom valid";
         }
     else{ 
         names.setAttribute("style" , "color:black; border: 1px green solid ;");
-        err.innerText = ""
+        err.innerText = "";
 
     }
 }
@@ -82,21 +105,35 @@ function ValidateEmail(){
     }
     else{ 
         email.setAttribute("style" , "color:black; border: 1px green solid ;");
-        erreurMail.innerText = ""
+        erreurMail.innerText = "";
 
     }
 }
 
 //input password : 
-function ValidateEmail(){
-    if(!(/^[a-zA-Z_0-9]{3,8}@[a-zA-Z]{3,8}[.]{1}[a-z]{2,4}$/).test(password.value)){
-        password.setAttribute("style" , "color:red; border: 1px red solid ;")  ;
+function ValidatePassword(){
+    if(!(/^[-a-zA-Z0-9@:%._#]{3,32}$/).test(password.value)){
+        password.setAttribute("style" , "color:red; border: 1px red solid ;");
         errPassword.setAttribute("style" , "color:red;");
-        errPassword.innerText = "veuillez entrer un email valid";
+        errPassword.innerText = "veuillez entrer un valid password";
     }
     else{ 
         password.setAttribute("style" , "color:black; border: 1px green solid ;");
-        errPassword.innerText = ""
+        errPassword.innerText = "";
+
+    }
+}
+
+//input confirmation du  password : 
+function ValidatecPassword(){
+    if(!(/^[-a-zA-Z0-9@:%._#]{3,32}$/) &&  password !== repassword){
+        repassword.setAttribute("style" , "color:red; border: 1px red solid ;")  ;
+        erreurcpassword.setAttribute("style" , "color:red;");
+        erreurcpassword.innerText = "veuillez entrer un valid password";
+    }
+    else{ 
+        repassword.setAttribute("style" , "color:black; border: 1px green solid ;");
+        erreurcpassword.innerText = "";
 
     }
 }
