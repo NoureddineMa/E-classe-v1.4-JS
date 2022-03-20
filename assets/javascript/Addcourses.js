@@ -1,7 +1,6 @@
 let nameCourse = document.getElementById("NameCourse");
 let ErreurNameCourse = document.getElementById("ErreurNameCourse");
-let PhotoCourse = document.getElementById("PhotoCourse");
-let ErreurPhotoCourse = document.getElementById("ErreurPhotoCourse");
+let submit = document.getElementById("submit");
 let LienCourse = document.getElementById("LienCourse");
 let ErreurLienCourse = document.getElementById("ErreurLienCourse");
 
@@ -15,9 +14,22 @@ submit.addEventListener("click",(e) =>{
         ErreurNameCourse.setAttribute("style" , "color:red;");
     }
     else{
-        e.preventDefault();
         nameCourse.setAttribute("style" , "color:black; border: 1px green solid ;")  ;
         ErreurNameCourse.innerText = "";
+    }
+})
+
+// lien : 
+submit.addEventListener("click",(e) =>{
+    if(LienCourse.value == ""){
+        e.preventDefault();
+        LienCourse.setAttribute("style" , "color:red; border: 1px red solid ;")  ;
+        ErreurLienCourse.innerText = "Name is required";
+        ErreurLienCourse.setAttribute("style" , "color:red;");
+    }
+    else{
+        LienCourse.setAttribute("style" , "color:black; border: 1px green solid ;")  ;
+        ErreurLienCourse.innerText = "";
     }
 })
 
@@ -35,4 +47,20 @@ function ValidationName(){
 
     }
 }
+
+// function lien :
+function ValidationLien(){
+    if(!(/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi).test(LienCourse.value)){
+        LienCourse.setAttribute("style" , "color:red; border: 1px red solid ;")  ;
+        ErreurLienCourse.setAttribute("style" , "color:red;");
+        ErreurLienCourse.innerText = "veuillez entrer un lien valid";
+        }
+    else{ 
+        LienCourse.setAttribute("style" , "color:black; border: 1px green solid ;");
+        ErreurLienCourse.innerText = ""
+
+    }
+}
+
+
 

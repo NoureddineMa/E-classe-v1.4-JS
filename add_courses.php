@@ -33,16 +33,16 @@
 
   <div class="form-group">
     <label for="formGroupExampleInput2">Lien</label> <br>
-    <input type="lien" class="form-control  " name="lien" id="LienCourse" >
+    <input type="lien" class="form-control  " name="lien" id="LienCourse" onkeyup="ValidationLien()" >
     <div id="ErreurLienCourse"></div>
   </div>
   
   <div class="col-auto text-center ">
-      <input type="submit" class="btn btn-info text-white mt-4  px-5 py-2 " name="save"  value="save"></input>
+      <input type="submit" class="btn btn-info text-white mt-4  px-5 py-2 " name="save"  value="save" id="submit"></input>
 
     </div>
 </form>
 </div>
-<script src="/assets/javascript/Addcourses.js"></script>
+<script src="assets/javascript/Addcourses.js"></script>
 </body>
 </html>
