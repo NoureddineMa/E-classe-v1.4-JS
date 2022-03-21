@@ -5,11 +5,7 @@
    $title = 'Add Student';
    include 'head.php';
 
-   $err_name='';
-   $err_email='';
-   $err_phone='';
-   $err_enroll_number='';
-   $err_date_of_addmision='';
+  
    
    
  ?>   
@@ -25,12 +21,12 @@
 <form method="POST" action="insert.php" class="container w-50 bg-white px-4 rounded py-4">  
   <div class="form-group">
     <label for="">Entrer Votre Photo :</label> 
-    <input type="file" class="form-control" alt="profile picture"  name="image" onkeyup="ValidateName()">
+    <input type="file" class="form-control" alt="profile picture"  name="image">
   </div>
   <div class="form-group">
     <label for="name">Name</label>
     <br>
-    <input type="text" class="form-control" name="name" id="name">
+    <input type="text" class="form-control" name="name" id="name"  onkeyup="ValidateName()">
     <div id="Erreurname"></div>
   </div>
   <div class="form-group">
@@ -40,12 +36,12 @@
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">Phone</label> <br>
-    <input type="text" class="form-control  " name="phone" id="phone">
-    <div src="Erreurphone"></div>
+    <input type="text" class="form-control" name="phone" id="phone" onkeyup="ValidatePhone()">
+    <div id="Erreurphone"></div>
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput2">Enroll Number</label> <br>
-    <input type="text" class="form-control " name="enroll_number" id="Enumber">
+    <input type="text" class="form-control " name="enroll_number" id="Enumber" onkeyup="ValidateNumber()">
     <div id="Erreurnumber"></div>
   </div>
   <div class="form-group">

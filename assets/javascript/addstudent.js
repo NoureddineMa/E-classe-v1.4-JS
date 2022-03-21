@@ -7,8 +7,6 @@ let Erreuremail = document.getElementById("Erreuremail");
 let Erreurphone = document.getElementById("Erreurphone");
 let Erreurnumber = document.getElementById("Erreurnumber");
 let submit = document.getElementById("submit");
-
-
 // name : 
 submit.addEventListener("click",(e) =>{
     if(names.value == ""){
@@ -36,12 +34,38 @@ submit.addEventListener("click",(e) =>{
         Erreuremail.innerText = "";
     }
 })
-
-
+// phone : 
+submit.addEventListener("click",(e) =>{
+    if(phone.value == ""){
+        e.preventDefault();
+        phone.setAttribute("style" , "color:red; border: 1px red solid ;")  ;
+        Erreurphone.innerText = "phone is required"
+        Erreurphone.setAttribute("style" , "color:red;");
+    }
+    else{
+        
+        phone.setAttribute("style" , "color:black; border: 1px green solid ;")  ;
+        Erreurphone.innerText = "";
+    }
+})
+// number : 
+submit.addEventListener("click",(e) =>{
+    if(number.value == ""){
+        e.preventDefault();
+        number.setAttribute("style" , "color:red; border: 1px red solid ;")  ;
+        Erreurnumber.innerText = "Email is required"
+        Erreurnumber.setAttribute("style" , "color:red;");
+    }
+    else{
+        
+        number.setAttribute("style" , "color:black; border: 1px green solid ;")  ;
+        Erreurnumber.innerText = "";
+    }
+})
  // function : 
 // Name : 
 function ValidateName(){
-    if(!(/^[a-z0-9_-]{3,15}$/).test(names.value)){
+    if(!(/^[a-z0-9]{3,10}$/).test(names.value)){
         names.setAttribute("style" , "color:red; border: 1px red solid ;")  ;
         ErreurNames.setAttribute("style" , "color:red;");
         ErreurNames.innerText = "veuillez entrer un nom valid";
@@ -62,6 +86,31 @@ function ValidateEmail(){
     else{ 
         email.setAttribute("style" , "color:black; border: 1px green solid ;");
         Erreuremail.innerText = "";
+
+    }
+}
+// phone : 
+function ValidatePhone(){
+    if(!(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/).test(phone.value)){
+        phone.setAttribute("style" , "color:red; border: 1px red solid ;")  ;
+        Erreurphone.setAttribute("style" , "color:red;");
+        Erreurphone.innerText = "veuillez entrer un Numero valid !";
+        }
+    else{ 
+        phone.setAttribute("style" , "color:black; border: 1px green solid ;");
+        Erreurphone.innerText = "";
+    }
+}
+// number : 
+function ValidateNumber(){
+    if(!(/^[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/).test(number.value)){
+        number.setAttribute("style" , "color:red; border: 1px red solid ;")  ;
+        Erreurnumber.setAttribute("style" , "color:red;");
+        Erreurnumber.innerText = "veuillez entrer un Numero Enroll valid !";
+        }
+    else{ 
+        number.setAttribute("style" , "color:black; border: 1px green solid ;");
+        Erreurnumber.innerText = "";
 
     }
 }

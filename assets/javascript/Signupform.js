@@ -69,12 +69,6 @@ submit.addEventListener("click",(ec) =>{
         erreurcpassword.innerText = "";
     }
 })
-
-
-
-
-
-
 // creation des fonctions : // --------------------------------_----------------
 
 
